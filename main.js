@@ -15,6 +15,7 @@ var storageArray = JSON.parse(localStorage.getItem('taskArray')) || [];
 var taskList = document.querySelector('.task-list');
 var taskField = document.querySelector(".task-field")
 var tasks = document.querySelector('.tasks');
+var deleteListItem = document.querySelector('.delete-button')
 
 
 window.addEventListener('load', disableButtons);
@@ -23,6 +24,11 @@ titleInput.addEventListener('keyup', disableButtons)
 titleInput.addEventListener('keyup', enableButtons)
 itemInput.addEventListener('keyup', disableButtons)
 itemInput.addEventListener('keyup', enableButtons)
+taskList.addEventListener('click', function(e) {
+  if (e.target.className === 'delete-button') {
+    e.target.parentElement.remove();
+  }
+});
 
 
 function disableButtons(e) {
@@ -66,4 +72,3 @@ function createNewTask(e) {
 		localStorage.setItem('tasks', JSON.stringify(tasks))
 		clearItemInput();
 }
-  
