@@ -24,6 +24,7 @@ header {
 h1 {
   color: white;
   margin-bottom: 20px;
+  margin-left: 10px;
   margin-top: 15px;
 }
 
@@ -73,6 +74,10 @@ label {
 
 ul {
   list-style-type: none;
+}
+
+li {
+  display: inline;
 }
 
 form {
@@ -147,14 +152,17 @@ main {
 h2 {
   border-bottom: 1px solid #cad5da;
   height: 30px;
+  margin: 0;
 }
 
-.task-list {
-  height: 50%;
-}
-
-p {
+section {
   font-size: 14px;
+  min-height: 100px;
+}
+
+.delete-text
+.urgent-text{
+  display: block;
 }
 
 footer {
@@ -162,29 +170,29 @@ footer {
   display: flex;
   height: 15%;
   justify-content: space-between;
+
 }
 
 .urgent-button {
   height: 20px;
-  margin-top: 10px;
-  margin-left: 25px;
+  margin-left: 15px; 
+  margin-top: 5px;
   width: 20px;
 }
 
 .urgent-text {
   margin-top: 0;
-  margin-left: 10px;
 }
 
 .delete-card-button {
   height: 20px;
   margin-top: 10px;
   width: 20px;
+  margin-left: 25%;
 }
 
-.delete-text {
-  margin-right: 25px;
-  margin-top: 0;
+span.delete-text {
+  margin-right: 0px;
 }
 
 /* @media screen and (max-width: 700px) */

@@ -24,6 +24,7 @@ titleInput.addEventListener('keyup', disableButtons)
 titleInput.addEventListener('keyup', enableButtons)
 itemInput.addEventListener('keyup', disableButtons)
 itemInput.addEventListener('keyup', enableButtons)
+populateCardButton.addEventListener('click', populateCard)
 taskList.addEventListener('click', function(e) {
   if (e.target.className === 'delete-button') {
     e.target.parentElement.remove();
@@ -70,5 +71,24 @@ function createNewTask(e) {
 			<li class="tasks" data-id="${Date.now()}">${itemInput.value}</li>
 		</div>`
 		localStorage.setItem('tasks', JSON.stringify(tasks))
-		clearItemInput();
+    clearItemInput();
+    clearTitleInput();
+}
+
+function populateCard (newTasks) {
+  var newCard =
+`<article class = "card" data-id= ${newTasks.id}>
+      <h2> contentEditable="true" class="editable-title">${newTasks.title}</h2>
+      <section class = "task-list-card">
+      </section>
+      <footer>
+        <a class= "urgent-button">
+          <img src="images/urgent.svg" class="urgent-button" alt="Lightning urgent Button"><span class="urgent-text">URGENT</span>
+        </a>
+        <a class="delete">
+          <img src="images/delete.svg" class="delete-card-button" alt="Delete Card X Button"><span class="delete-text">DELETE</span>
+        </a>
+      </footer>
+    </article>`
+    taskField.insertAdjacentHTML('afterbegin', newCard);
 }
