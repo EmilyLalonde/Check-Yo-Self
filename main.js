@@ -30,6 +30,11 @@ taskList.addEventListener('click', function(e) {
     e.target.parentElement.remove();
   }
 });
+taskField.addEventListener('click', function(e) {
+  if (e.target.className === 'delete-card-button') {
+    e.target.parentElement.parentElement.parentElement.remove();
+  }
+});
 
 
 function disableButtons(e) {
