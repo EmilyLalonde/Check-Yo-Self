@@ -12,8 +12,9 @@ var deleteCardButton = document.querySelector('.delete-card-button');
 var taskField = document.querySelector('.task-field')
 var taskManager = document.querySelector('.task-manager');
 var storageArray = JSON.parse(localStorage.getItem('taskArray')) || [];
-var taskDisplay = document.querySelector('.task-list');
-sidebarTaskList = document.querySelector(".task-list")
+var taskList = document.querySelector('.task-list');
+var taskField = document.querySelector(".task-field")
+var tasks = document.querySelector('.tasks');
 
 
 window.addEventListener('load', disableButtons);
@@ -50,21 +51,19 @@ function clearTitleInput() {
   titleInput.value = "";
 }
 
-function clearTaskInput() {
+function clearItemInput() {
   itemInput.value = "";
 }
 
+addItemButton.addEventListener('click', createNewTask);
 
-var addItems = document.querySelector(".nav-form");
-var newTaskDisplay = document.querySelector(".task-display");
-addItems.addEventListener("submit", addToList);
-addItemButton.addEventListener("click", addToList);
-
-function addToList(e) {
-  e.preventDefault();
-  newTaskDisplay.innerHTML += `<div>
-    <img src="images/delete.svg" class="delete-item">
-    <li class="new-task-item" data-id=${Date.now()}>${taskItemInput.value}</li></div>`
-  localStorage.setItem("saveTasks", JSON.stringify(taskList));
+function createNewTask(e) {
+	taskList.innerHTML += 
+		`<div class="sidebar-item">
+			<img src="images/delete.svg" class="delete-button">
+			<li class="tasks" data-id="${Date.now()}">${itemInput.value}</li>
+		</div>`
+		localStorage.setItem('tasks', JSON.stringify(tasks))
+		clearItemInput();
 }
-
+  
